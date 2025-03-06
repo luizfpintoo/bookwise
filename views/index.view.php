@@ -9,7 +9,7 @@
 <section class="mt-10">
     <div class="grid md:grid-cols-3 gap-3">
         <?php foreach ($livros as $livro): ?>
-            <a href="/livro.php?id=<?= $livro["id"]; ?>">
+            <a href="/livro?id=<?= $livro["id"]; ?>">
                 <div class="bg-stone-800 p-4 rounded-md">
                     <div class="flex gap-4">
                         <div class=" w-1/3">
