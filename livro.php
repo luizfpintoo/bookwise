@@ -1,5 +1,13 @@
 <?php
-require "dados.php";
+    require "dados.php";
+
+    $id = $_REQUEST["id"];
+    
+    $filtrado = array_filter($livros, function($l) use ($id) {
+        return $l["id"] == $id;
+    });
+
+    $livro = array_pop($filtrado);
 ?>
 
 
@@ -33,19 +41,10 @@ require "dados.php";
         </nav>
     </header>
 
-    <main class="mx-auto max-w-5xl mt-3 p-4">
-        <div>
-            <h1 class="text-2xl font-bold mb-4">Explorar</h1>
-            <form action="#">
-                <input class="border border-stone-800 py-2 px-4 rounded-md focus:outline-none" type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar Livro">
-                <button class="bg-emerald-500 py-2 px-4 rounded-md text-emerald-900 font-semibold cursor:pointer" type="submit">Pesquisar</button>
-            </form>
-        </div>
-
+    <main class="mx-auto max-w-5xl mt-10 p-4">
         <section class="mt-10">
-            <div class="grid md:grid-cols-3 gap-3">
-                <?php foreach($livros as $livro): ?>
-                <a href="/livro.php?id=<?= $livro["id"]; ?>">
+            <div>
+            <a href="/livro.php?id=<?= $livro["id"]; ?>">
                     <div class="bg-stone-800 p-4 rounded-md">
                         <div class="flex gap-4">
                             <div class=" w-1/3">
@@ -60,7 +59,6 @@ require "dados.php";
                         <p class="mt-2">Lorem ipsum dolor sit amet consectetu</p>
                     </div>
                 </a>
-                <?php endforeach; ?>
             </div>
         </section>
     </main>
