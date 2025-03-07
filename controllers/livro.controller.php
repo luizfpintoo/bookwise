@@ -8,6 +8,8 @@ $filtrado = array_filter($livros, function ($l) use ($id) {
 
 $livro = array_pop($filtrado);
 
-$view = "livro";
+view("livro", [
+    "livro" => $livro
+]);
 
-require "views/template/app.php";
+// require "views/template/app.php";

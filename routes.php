@@ -7,9 +7,7 @@ if (! $controller) {
 
 
 if (! file_exists("controllers/{$controller}.controller.php")) {
-    http_response_code(404);
-    echo "Rota não encontrada";
-    die();
+    abort(404);
 }
 
 require "controllers/{$controller}.controller.php";
