@@ -17,12 +17,12 @@
                     <a class="text-emerald-500" href="/">Explorar</a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="/meus-livros.php">Meus Livros</a>
+                    <a class="hover:underline" href="/meus-livros">Meus Livros</a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="/login.php">Fazer Login</a>
+                    <a href="/login">Fazer Login</a>
                 </li>
             </ul>
         </nav>
