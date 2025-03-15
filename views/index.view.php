@@ -1,6 +1,6 @@
 <div>
     <h1 class="text-2xl font-bold mb-4">Explorar</h1>
-    <form action="#">
+    <form>
         <input class="border border-stone-800 py-2 px-4 rounded-md focus:outline-none" type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar Livro">
         <button class="bg-emerald-500 py-2 px-4 rounded-md text-emerald-900 font-semibold cursor:pointer" type="submit">Pesquisar</button>
     </form>
@@ -18,6 +18,7 @@
                         <div>
                             <h3 class="font-semibold"><?= $livro->titulo; ?></h3>
                             <p class="text-sm italic"><?= $livro->ano_de_lancamento; ?></p>
+                            <p class="text-sm italic"><?= $livro->autor; ?></p>
                             <p class="text-sm">⭐⭐⭐(Avalicações Fake)</p>
                         </div>
                     </div>

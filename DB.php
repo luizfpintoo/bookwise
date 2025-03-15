@@ -10,31 +10,24 @@ class DB
         $this->db = new PDO('sqlite:database.sqlite');
     }
 
-    public function livros($id = null)
+    public function livros($pesquisar = null)
     {
-        $query = $this->db->query("select * from livros");
-        $items = $query->fetchAll();
-        $retorno = [];
 
-        foreach ($items as $item) {
-            $retorno[] = Livro::make($item);
-        }
-
-        return $retorno;
+        $prepare = $this->db->prepare("SELECT * FROM livros WHERE usuario_id = 1 AND titulo LIKE :pesquisar");
+        $prepare->bindValue("pesquisar", "%$pesquisar%");
+        $prepare->execute();
+        $prepare->setFetchMode(PDO::FETCH_CLASS, Livro::class);
+        $livros = $prepare->fetchAll();
+        return $livros;
     }
 
     public function livro($id)
     {
-        $sql = "select * from livros";
-        $sql .= " where id = " . $id;
-        $query = $this->db->query($sql);
-        $items = $query->fetchAll();
-        $retorno = [];
-
-        foreach ($items as $item) {
-            $retorno[] = Livro::make($item);
-        }
-
-        return $retorno[0];
+        $prepare = $this->db->query("select * from livros where id = :id");
+        $prepare->bindValue("id", $id);
+        $prepare->setFetchMode(PDO::FETCH_CLASS, Livro::class);
+        $prepare->execute();
+        $livro = $prepare->fetch();
+        return $livro;
     }
 }

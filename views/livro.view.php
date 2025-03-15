@@ -6,7 +6,7 @@
 
 <section class="mt-10">
     <div>
-        <a href="/livro?id=<?= $livro->autor; ?>">
+        <a href="/livro?id=<?= $livro->id; ?>">
             <div class="bg-stone-800 p-4 rounded-md">
                 <div class="flex gap-4">
                     <div class=" w-1/3">
